@@ -1,0 +1,32 @@
+{
+  "products": [
+    {
+      "id": 0,
+      "title": "그물 펜던트 조명",
+      "brand": "바이조명",
+      "photo": "src/image/pr1.jpg",
+      "price": 53500
+    },
+    {
+      "id": 1,
+      "title": "볼 무드등",
+      "brand": "트렌거",
+      "photo": "src/image/pr2.jpg",
+      "price": 31900
+    },
+    {
+      "id": 2,
+      "title": "우드 펜던트 조명",
+      "brand": "코라이팅",
+      "photo": "src/image/pr3.jpg",
+      "price": 38500
+    },
+    {
+      "id": 3,
+      "title": "레이디 식탁등",
+      "brand": "비츠룸",
+      "photo": "src/image/pr4.jpg",
+      "price": 89000
+    }
+  ]
+}

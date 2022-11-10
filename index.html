@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightmoa</title>
+  <!-- favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="src/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="src/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="src/favicon/favicon-16x16.png">
+  <link rel="manifest" href="src/favicon/site.webmanifest">
+  <!-- 부트스트랩 cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- jquery cdn -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- css -->
+  <!-- <link rel="stylesheet" href="reset.css"> -->
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <!-- ======================== -->
+  <!-- 헤더, 네브바 -->
+  <!-- ======================== -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Lightmoa</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">신상품</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">베스트</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">알뜰쇼핑</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">특가/혜택</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ======================== -->
+  <!-- 검색 섹션 -->
+  <!-- ======================== -->
+
+  <section>
+    <div class="container">
+      <div class="searchBox">
+        <input id="search" placeholder="검색어를 입력해주세요" title="검색어를 입력해주세요.">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 상품 섹션 -->
+  <!-- ======================== -->
+
+  <section>
+    <div class="container">
+      <div class="row product-list align-items-stretch">
+        <!-- 상품 정보 -->
+        <!-- 
+            <div class="col-sm-6 col-md-3">
+            <div class="item" draggable="true" data-id="상품아이디">
+              <img src="상품이미지">
+              <h4>상품명</h4>
+              <h5>상품브랜드</h5>
+              <p>상품가격 원</p>
+              <button class="add" data-id="상품아이디">담기</button>
+            </div 
+          -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 장바구니 섹션 -->
+  <!-- ======================== -->
+
+  <section>
+    <div class="container basket-wrap">
+      <h4>장바구니 (드래그 가능)</h4>
+      <div class="row basket">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 최종가격 섹션 -->
+  <!-- ======================== -->
+
+  <section>
+    <div class="container">
+      <h4>최종가격</h4>
+      <p class="final-price"></p>
+      <button class="buy" type="button">구매하기</button>
+    </div>
+  </section>
+
+  <!-- ======================== -->
+  <!-- 정보입력 모달 -->
+  <!-- ======================== -->
+
+  <aside>
+    <div class="modal modalInfo">
+      <div class="whiteBg">
+        <h4>구매자 정보 입력</h4>
+        <div class="customerInfo">
+          <label for="name">성함</label>
+          <input type="text" id="name" placeholder="성함을 입력해주세요" title="성함을 입력하세요.">
+        </div>
+        <div class="customerInfo">
+          <label for="phone">연락처</label>
+          <input type="text" id="phone" placeholder="-를 제외한 연락처를 입력해주세요" title="연락처를 입력하세요." maxlength="11">
+        </div>
+        <div class="my-4">
+          <button class="showReceipt" type="button">입력완료</button>
+          <button class="close" type="button">닫기</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================== -->
+  <!-- 영수증 모달  -->
+  <!-- ======================== -->
+
+  <aside>
+    <div class="modal modalReceipt">
+      <div class="whiteBg">
+        <h4>영수증</h4>
+        <canvas id="canvas" width="350" height="350"></canvas>
+        <div>
+          <button class="close" type="button">닫기</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ======================== -->
+  <!-- 푸터  -->
+  <!-- ======================== -->
+  <footer>
+    <div class="container">
+      <h4>Lightmoa</h4>
+      <address>
+        <a href="tel:+212345678">02-1234-5678</a><br>
+        <a href="mailto:customer@lightmoa.com">customer@lightmoa.com</a>
+      </address>
+      <p>Copyright © 2022 Lightmoa.co.,Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+
+  <!-- index js -->
+  <script src="index.js"></script>
+
+</body>
+
+</html>

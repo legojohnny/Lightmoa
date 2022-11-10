@@ -1,0 +1,207 @@
+/* noto-sans-kr-regular - latin_korean */
+@font-face {
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: 400;
+  src: url("src/fonts/noto-sans-kr-v27-latin_korean-regular.eot"); /* IE9 Compat Modes */
+  src: local(""),
+    url("src/fonts/noto-sans-kr-v27-latin_korean-regular.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-IE8 */ url("src/fonts/noto-sans-kr-v27-latin_korean-regular.woff2")
+      format("woff2"),
+    /* Super Modern Browsers */
+      url("src/fonts/noto-sans-kr-v27-latin_korean-regular.woff") format("woff"),
+    /* Modern Browsers */
+      url("src/fonts/noto-sans-kr-v27-latin_korean-regular.ttf")
+      format("truetype"),
+    /* Safari, Android, iOS */
+      url("src/fonts/noto-sans-kr-v27-latin_korean-regular.svg#NotoSansKR")
+      format("svg"); /* Legacy iOS */
+}
+
+/* ======================== */
+/* 공통 */
+/* ======================== */
+:root {
+  --main-color: #0b163d;
+  --sub-color: #3865bc;
+  --bg-color: #f7faff;
+  --font-color: #333;
+  --box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+  --h4-fontSize: 1rem;
+  --p--fontSize: 1rem;
+}
+
+body {
+  background: #fff;
+  font-family: "Noto Sans KR", sans-serif;
+  color: var(--font-color);
+}
+
+button {
+  background: var(--sub-color);
+  color: white;
+  border-radius: 3px;
+  border: none;
+  padding: 0.5rem 1rem;
+}
+img {
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+section,
+footer {
+  margin-top: 50px;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ======================== */
+/* 헤더, 네브바 */
+/* ======================== */
+
+header {
+  background-color: var(--bg-color);
+  box-shadow: var(--box-shadow);
+}
+.navbar {
+  max-width: 1320px;
+  margin: auto;
+}
+
+/* ======================== */
+/* 검색 */
+/* ======================== */
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 22rem;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid var(--main-color);
+  border-radius: 6px;
+  box-shadow: var(--box-shadow);
+}
+#search {
+  border: none;
+  outline: none;
+}
+
+/* ======================== */
+/* 상품 */
+/* ======================== */
+
+.item .imgBox {
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.item img {
+  width: 110%;
+  object-fit: cover;
+  transition: all 200ms ease 0ms;
+  margin: 0;
+}
+
+.item img:hover {
+  transform: scale(1.05);
+}
+
+/* ======================== */
+/* 장바구니 */
+/* ======================== */
+
+.basket-wrap {
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 6px;
+  background: var(--bg-color);
+  box-shadow: var(--box-shadow);
+}
+
+.basket {
+  min-height: 300px;
+  width: 100%;
+  background: var(--main-color);
+  padding: 20px;
+  border-radius: 6px;
+  margin: 0;
+  margin-top: 30px;
+  gap: 2%;
+}
+
+.basket div {
+  padding: 15px;
+  border-radius: 5px;
+  width: 23.5%;
+}
+
+.item {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+/* ======================== */
+/* 모달창 */
+/* ======================== */
+
+.modal {
+  display: none;
+  position: fixed;
+  margin: auto;
+  padding: 30px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.whiteBg {
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+}
+
+.customerInfo {
+  margin: 1rem 0;
+}
+.customerInfo label {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+.customerInfo input {
+  width: 20rem;
+  padding-left: 5px;
+}
+
+/* ======================== */
+/* 푸터 */
+/* ======================== */
+
+footer {
+  background-color: var(--bg-color);
+}
+
+footer .container {
+  padding: 3rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+footer .container h4 {
+  margin-bottom: 1rem;
+}
+footer .container a {
+  text-decoration: none;
+  color: var(--font-color);
+}
