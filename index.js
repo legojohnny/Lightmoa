@@ -141,26 +141,46 @@ $("#phone").on("input", function () {
 
 //모달창의 완료버튼 누르면 영수증 보여줌
 //영수증에 canvas태그로 그림그려줌
-$(".showReceipt").click(function () {
-  $(".modalInfo").css("display", "none");
-  $(".modalReceipt").css("display", "block");
+$(".modalInfo form").on("submit", function (e) {
+  // 입력된 정보 공백 및 정규식 확인
+  var regCustomer = /^[가-힣a-zA-Z]+$/;
+  var regContact = /(^02.{0}|^01.{1}|[0-9]{3})([0-9]+)([0-9]{4})/;
 
-  var canvas = document.getElementById("canvas");
-  var c = canvas.getContext("2d"); // 렌더링 컨텍스트 타입은 2d
+  if (customer == "") {
+    e.preventDefault();
+    alert("성함을 입력해주세요");
+  } else if (!regCustomer.test(customer)) {
+    e.preventDefault();
+    alert("한글이나 영문만 입력해주세요");
+  }
+  if (regContact == "") {
+    e.preventDefault();
+    alert("연락처를 입력해주세요");
+  } else if (!regContact.test(contact)) {
+    e.preventDefault();
+    alert("숫자만 입력해주세요");
+  } else {
+    e.preventDefault();
+    // 영수증 canvas 기능
+    $(".modalInfo").css("display", "none");
+    $(".modalReceipt").css("display", "block");
+    var canvas = document.getElementById("canvas");
+    var c = canvas.getContext("2d"); // 렌더링 컨텍스트 타입은 2d
 
-  c.font = "1rem Noto Sans KR";
-  c.fillText("구매자 : " + customer, 20, 30);
-  c.fillText("연락처 : " + contact, 20, 60);
-  c.fillText($(".final-price").html(), 20, 90);
-  cart.forEach((a, i) => {
-    var productName = a.title;
-    var productCount = $(".item-count").eq(i).val();
-    c.fillText(
-      "상품명 : " + productName + " (수량 : " + productCount + " )",
-      20,
-      120 + 30 * i
-    );
-  });
+    c.font = "1rem Noto Sans KR";
+    c.fillText("구매자 : " + customer, 20, 30);
+    c.fillText("연락처 : " + contact, 20, 60);
+    c.fillText($(".final-price").html(), 20, 90);
+    cart.forEach((a, i) => {
+      var productName = a.title;
+      var productCount = $(".item-count").eq(i).val();
+      c.fillText(
+        "상품명 : " + productName + " (수량 : " + productCount + " )",
+        20,
+        120 + 30 * i
+      );
+    });
+  }
 });
 
 //===========================
