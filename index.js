@@ -11,7 +11,7 @@ $.get("store.json").then((data) => {
   //페이지로드시 json 데이터가져와서 메인페이지 상품 목록 만들기
   data.products.forEach((a, i) => {
     $(".product-list").append(`
-          <div class="col-md-3">
+          <div class="col-4 col-md-3">
             <div class="item" draggable="true" data-id="${a.id}">
               <div class="imgBox"><img src="https://legojohnny.github.io/Lightmoa/${a.photo}" draggable="false"></div>
               <h4>${a.title}</h4>
@@ -289,4 +289,12 @@ $(".close").click(function (e) {
   $("#name").val("");
   $("#phone").val("");
   canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+});
+
+//===========================
+// 모바일 디자인 네브 탭 열기
+//===========================
+
+$(".navbar-toggler").click(function () {
+  $(".navbar-collapse").toggleClass("show");
 });
